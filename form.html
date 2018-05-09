@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+
+</head>
+<body>
+    <div class="container">
+        <div class="d-flex justify-content-center bg-warning ">
+            <div class="d-flex flex ">
+                <h2 class="d-flex">Controller</h1>
+            </div>
+        </div>
+        
+        <div class="row">
+            <button class="col btn btn-primary m-3" onclick="TurnON()">ON</button>
+            <button class="col btn btn-secondary m-3" onclick="TurnOff()">OFF</button>
+            <button class="col btn btn-default m-3" onclick="Close()">CLOSE</button>
+        </div>
+        <div id="msg" class="row m-1 p-2 bg-info d-flex justify-content-center">
+            Empty
+        </div>
+    </div>
+    
+
+    <!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<!-- Popper JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
+
+<script>
+    function TurnON(){
+        alert("ON");//change for Request function
+        
+    }
+    function TurnOff(){
+        alert("OFF");//change for Request function
+    }
+    function Close(){
+        alert("Close");//change for Request function
+    }
+    function RequestON(){
+        $.ajax({
+            url:"http://localhotst/turn_on.php",
+            success:function(result){
+                $("#msg").html(result);
+            }
+        });
+    }
+    function RequestOFF(){
+        $.ajax({
+            url:"http://localhotst/turn_off.php",
+            success:function(result){
+                $("#msg").html(result);
+            }
+        });
+    }
+    function RequestClose(){
+        $.ajax({
+            url:"close.php",
+            success:function(result){
+                $("#msg").html(result);
+            }
+        });
+    }
+</script>
+</body>
+</html>
